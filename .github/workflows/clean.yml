@@ -1,0 +1,23 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Clean workflow
+
+# Controls when the workflow will run
+on: 
+  workflow_dispatch:
+jobs:
+  job1:
+    name: clean
+    runs-on: Ubuntu-latest
+    steps:
+      - name: test
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          scripts: |
+            unalias rm
+            rm -rf cmsc388T-web-template
+          
