@@ -1,0 +1,22 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Clone workflow
+
+# Controls when the workflow will run
+on: 
+  workflow_dispatch:
+jobs:
+  job1:
+    name: clone
+    runs-on: Ubuntu-latest
+    steps:
+      - name: test
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          scripts: |
+            git clone git@github.com:rschmid4/cmsc388T-web-template.git
+          
