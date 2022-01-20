@@ -20,5 +20,5 @@ jobs:
           script: |
             unalias rm
             rm -rf cmsc388T-web-template
-            rm -rf ../../pub/index.html
+            rm -rf ../pub/index.html
           
